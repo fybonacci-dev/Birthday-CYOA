@@ -1,140 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Greg's 40th Birthday Adventure</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Quicksand&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <h1>Greg's 40th Birthday</h1>
-    <h2>Choose your own adventure...</h2>
+/* Global Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <div class="section" id="intro">
-      <p class="poem">
-        Four decades of learning, growing, conquering, and building,<br>
-        Your journey’s been rich, fearless, and wildly fulfilling.<br>
-        You’ve hustled through seasons, with grit and with grace,<br>
-        Poured yourself into every challenge you face.<br><br>
-        You’ve built something irreplaceable, a business with soul,<br>
-        Led with your heart while achieving each goal.<br>
-        You’ve lifted up others, been steady and true—<br>
-        Be proud of the good that radiates from you.<br><br>
-        Now comes a moment to breathe, to rest—<br>
-        Before tackling what’s next (and giving your best).<br>
-        You’ve earned a break, a rejuvenating quest,<br>
-        To reset your soul and feel truly blessed.<br><br>
-        So Greg, the choice is now up to you:<br>
-        <strong>Beachside Grande Dunes</strong> with an ocean view?<br>
-        Or <strong>Chetolah’s peaks</strong> in Blowing Rock air?<br>
-        Both will be hot, but peace waits there.
-      </p>
+/* Fonts */
+body {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(to bottom, #1e1e2f, #2d2d3a);
+  color: #f2f2f2;
+  line-height: 1.6;
+}
 
-      <div class="choice-images">
-        <div class="choice">
-          <img src="https://cache.marriott.com/content/dam/marriott-renditions/MYRGD/myrgd-view-0024-hor-clsc.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*" alt="Beach" />
-          <button onclick="chooseLocation('beach')">🏖️ Go to the Beach</button>
-        </div>
-        <div class="choice">
-          <img src="https://blowingrock.com/wp-content/uploads/2022/05/che2.jpg" alt="Mountains" />
-          <button onclick="chooseLocation('mountains')">🏔️ Go to the Mountains</button>
-        </div>
-      </div>
-    </div> <!-- 🔧 FIXED: Properly closed #intro -->
+/* Container */
+.container {
+  max-width: 850px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #2b2b3c;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
 
-    <div class="section" id="activities" style="display:none;">
-      <h2>🎯 Choose Your Activities</h2>
-      <div id="activity-options"></div>
-      <button onclick="finishAdventure()">✅ Finish Adventure</button>
-    </div>
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  color: #e2b714;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
 
-    <div class="section" id="summary" style="display:none;">
-      <h2>🗺️ Your Itinerary</h2>
-      <pre id="itinerary"></pre>
-      <button id="download" onclick="downloadItinerary()">⬇️ Download Itinerary</button>
-    </div>
-  </div>
+h2 {
+  font-size: 1.5rem;
+  color: #c0c0c0;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 
-  <script>
-    const state = {
-      location: '',
-      activities: []
-    };
+/* Poem */
+.poem {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #d8d8d8;
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
-    const options = {
-      beach: {
-        name: 'Grande Dunes Resort and Spa',
-        activities: [
-          'Morning yoga on the beach',
-          'Deep tissue massage at the spa',
-          'Golf at the Grande Dunes course',
-          'Sunset dinner with ocean view',
-          'Jet ski adventure'
-        ]
-      },
-      mountains: {
-        name: 'Chetolah Resort at Blowing Rock',
-        activities: [
-          'Hike to Glen Burney Falls',
-          'Craft beer tasting in town',
-          'Hot stone massage at the lodge',
-          'Scenic drive on Blue Ridge Parkway',
-          'Evening fire pit and stargazing'
-        ]
-      }
-    };
+/* Image Choices */
+.choice-images {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
 
-    function chooseLocation(loc) {
-      state.location = loc;
-      document.getElementById('intro').style.display = 'none';
-      const actDiv = document.getElementById('activity-options');
-      actDiv.innerHTML = '';
-      options[loc].activities.forEach((activity, i) => {
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.id = `act-${i}`;
-        checkbox.value = activity;
-        actDiv.appendChild(checkbox);
+.choice {
+  text-align: center;
+  max-width: 320px;
+}
 
-        const label = document.createElement('label');
-        label.htmlFor = `act-${i}`;
-        label.textContent = activity;
-        actDiv.appendChild(label);
-        actDiv.appendChild(document.createElement('br'));
-      });
-      document.getElementById('activities').style.display = 'block';
-    }
+.choice img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #444;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  margin-bottom: 1rem;
+}
 
-    function finishAdventure() {
-      const checkboxes = document.querySelectorAll('#activity-options input[type=checkbox]');
-      state.activities = [];
-      checkboxes.forEach(cb => {
-        if (cb.checked) state.activities.push(cb.value);
-      });
+/* Buttons */
+button {
+  background: linear-gradient(to right, #5c5470, #3a3f5a);
+  color: #ffffff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-      const itinerary = `Greg's 40th Birthday Itinerary\n\n` +
-                        `Location: ${options[state.location].name}\n\n` +
-                        `Activities:\n` +
-                        (state.activities.length > 0
-                          ? state.activities.map(a => `- ${a}`).join('\n')
-                          : '- No activities selected') +
-                        `\n\nEnjoy your adventure, Greg! 🎉`;
+button:hover {
+  background: linear-gradient(to right, #73658a, #4a4e6a);
+}
 
-      document.getElementById('itinerary').textContent = itinerary;
-      document.getElementById('activities').style.display = 'none';
-      document.getElementById('summary').style.display = 'block';
-      document.getElementById('download').style.display = 'inline-block';
-    }
+/* Sections */
+.section {
+  margin-top: 2rem;
+}
 
-    function downloadItinerary() {
-      const text = document.getElementById('itinerary').textContent;
-      const blob = new Blob([text], { type: 'text/plain' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'Greg_40th_Itinerary.txt';
-      link.click();
-    }
-  </script>
-</body>
-</html>
+/* Activity List */
+label {
+  margin-left: 0.5rem;
+}
+
+/* Itinerary Text */
+pre {
+  background-color: #1e1e2f;
+  color: #f2f2f2;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .choice-images {
+    flex-direction: column;
+    align-items: center;
+  }
+}
