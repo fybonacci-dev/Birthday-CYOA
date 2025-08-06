@@ -1,116 +1,313 @@
-/* Global Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Body background and fonts */
 body {
-  font-family: 'Lato', sans-serif;
-  background: #EFE4D2 url('https://www.transparenttextures.com/patterns/purty-wood.png');
-  color: #EFE4D2;
-  line-height: 1.6;
-  background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2F4F4F 0%, #8B4513 30%, #4A4A4A 70%, #2C3E50 100%);
+    min-height: 100vh;
+    color: #333;
 }
 
-/* Main container */
 .container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: rgba(150, 167, 181, 0.7);
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Headings */
-h1 {
-  text-align: center;
-  color: #954C2E;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+.page {
+    display: none;
+    background: rgba(47, 79, 79, 0.92);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 0, 0.3);
+    color: #F5F5DC;
 }
 
-h2 {
-  text-align: center;
-  color: #EFE4D2;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+.page.active {
+    display: block;
+    animation: fadeIn 0.6s ease-in-out;
 }
 
-/* Poem styling */
-.poem {
-  font-style: italic;
-  font-size: 1.15rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #3b3e40;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Choice images */
-.choice-images {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
+/* Splash Page Styles */
+.splash-content {
+    text-align: center;
 }
 
-.choice {
-  text-align: center;
-  max-width: 320px;
+.birthday-title {
+    font-size: 2.5em;
+    color: #CC7722;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    line-height: 1.2;
 }
 
-.choice img {
-  width: 100%;
-  border-radius: 8px;
-  border: 2px solid #EFE4D2;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-  margin-bottom: 1rem;
+.birthday-message {
+    margin-bottom: 40px;
 }
 
-/* Buttons */
-button {
-  background-color: #954C2E;
-  color: #EFE4D2;
-  font-size: 1rem;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.birthday-message p {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #E6E6FA;
 }
 
-button:hover {
-  background-color: #b85b3a;
+.age-highlight {
+    font-weight: bold;
+    color: #FF8C00;
+    font-size: 1.4em !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Activities list */
-label {
-  margin-left: 0.5rem;
-  font-size: 1rem;
+.start-btn {
+    background: linear-gradient(45deg, #4682B4, #2F4F4F);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 1.4em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(70, 130, 180, 0.4);
+    font-weight: bold;
+    border: 2px solid #CC7722;
 }
 
-/* Sections */
-.section {
-  margin-top: 2rem;
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(70, 130, 180, 0.6);
+    background: linear-gradient(45deg, #5F9EA0, #4682B4);
 }
 
-/* Itinerary */
-pre {
-  background-color: #131D4F;
-  color: #EFE4D2;
-  padding: 1rem;
-  border-radius: 6px;
-  white-space: pre-wrap;
+/* Story Content Styles */
+.story-content h2 {
+    color: #CC7722;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Responsive layout */
+.story-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #E6E6FA;
+}
+
+.story-text p {
+    margin-bottom: 15px;
+}
+
+/* Birthday Poem Styles */
+.birthday-poem {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.2) 0%, rgba(47, 79, 79, 0.3) 100%);
+    border-left: 4px solid #CC7722;
+    padding: 20px 25px;
+    margin: 25px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.birthday-poem p {
+    margin-bottom: 12px;
+    font-style: italic;
+    color: #FFE4B5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+}
+
+.birthday-poem p:last-child {
+    margin-bottom: 0;
+    font-weight: 500;
+    color: #FFA500;
+}
+
+/* Choice Cards */
+.choices {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.choice-card {
+    flex: 1;
+    background: linear-gradient(135deg, #2F4F4F 0%, #4A4A4A 100%);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #FF8C00;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.choice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    border-color: #CC7722;
+    background: linear-gradient(135deg, #4682B4 0%, #2F4F4F 100%);
+}
+
+.choice-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.choice-card h3 {
+    color: #CC7722;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.choice-card p {
+    color: #E6E6FA;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/* Coming Soon Style */
+.coming-soon {
+    text-align: center;
+    font-size: 1.3em;
+    color: #FF8C00;
+    font-weight: bold;
+    margin-top: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Birthday Celebration Ending Styles */
+.birthday-celebration {
+    background: linear-gradient(135deg, rgba(204, 119, 34, 0.2) 0%, rgba(255, 140, 0, 0.1) 100%);
+    border: 2px solid #CC7722;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(204, 119, 34, 0.3);
+    text-align: center;
+}
+
+.birthday-celebration h3 {
+    color: #FF8C00;
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.birthday-celebration p {
+    color: #FFE4B5;
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.birthday-wish {
+    font-size: 1.8em;
+    color: #CC7722;
+    font-weight: bold;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.reflection-quote {
+    border-left: 4px solid #FF8C00;
+    padding-left: 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #E6E6FA;
+    background: rgba(47, 79, 79, 0.3);
+    padding: 15px 20px;
+    border-radius: 5px;
+}
+
+/* Back Button */
+.back-btn {
+    background: linear-gradient(45deg, #2F4F4F, #4A4A4A);
+    color: white;
+    border: 2px solid #FF8C00;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(255, 140, 0, 0.4);
+    background: linear-gradient(45deg, #4682B4, #2F4F4F);
+    border-color: #CC7722;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .choice-images {
-    flex-direction: column;
-    align-items: center;
-  }
+    .container {
+        padding: 15px;
+    }
+    
+    .page {
+        padding: 25px;
+    }
+    
+    .birthday-title {
+        font-size: 2em;
+    }
+    
+    .choices {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .choice-card {
+        margin-bottom: 0;
+    }
+    
+    .birthday-message p {
+        font-size: 1.1em;
+    }
+    
+    .start-btn {
+        font-size: 1.2em;
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .birthday-title {
+        font-size: 1.7em;
+    }
+    
+    .story-content h2 {
+        font-size: 1.8em;
+    }
+    
+    .choice-icon {
+        font-size: 2.5em;
+    }
+    
+    .choice-card h3 {
+        font-size: 1.2em;
+    }
 }
