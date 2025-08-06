@@ -1,54 +1,52 @@
 /* Global Reset */
-body, html {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Fonts */
+/* Body background and fonts */
 body {
   font-family: 'Lato', sans-serif;
-  background: linear-gradient(to bottom, #1e1e2f, #2d2d3a);
-  color: #f2f2f2;
+  background-color: #131D4F;
+  color: #EFE4D2;
   line-height: 1.6;
 }
 
-/* Container */
+/* Main container */
 .container {
-  max-width: 850px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #2b2b3c;
+  background-color: #254D70;
   border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Headings */
 h1 {
-  font-size: 2.5rem;
-  color: #e2b714;
   text-align: center;
+  color: #EFE4D2;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
 h2 {
-  font-size: 1.5rem;
-  color: #c0c0c0;
   text-align: center;
-  margin-top: 1rem;
+  color: #EFE4D2;
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
 
-/* Poem */
+/* Poem styling */
 .poem {
   font-style: italic;
-  font-size: 1.1rem;
-  color: #d8d8d8;
+  font-size: 1.15rem;
   text-align: center;
   margin-bottom: 2rem;
 }
 
-/* Image Choices */
+/* Choice images */
 .choice-images {
   display: flex;
   justify-content: center;
@@ -64,28 +62,33 @@ h2 {
 
 .choice img {
   width: 100%;
-  height: auto;
   border-radius: 8px;
-  border: 1px solid #444;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  border: 2px solid #EFE4D2;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
   margin-bottom: 1rem;
 }
 
 /* Buttons */
 button {
-  background: linear-gradient(to right, #5c5470, #3a3f5a);
-  color: #ffffff;
-  padding: 12px 20px;
+  background-color: #954C2E;
+  color: #EFE4D2;
   font-size: 1rem;
+  padding: 12px 20px;
   border: none;
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background: linear-gradient(to right, #73658a, #4a4e6a);
+  background-color: #b85b3a;
+}
+
+/* Activities list */
+label {
+  margin-left: 0.5rem;
+  font-size: 1rem;
 }
 
 /* Sections */
@@ -93,21 +96,16 @@ button:hover {
   margin-top: 2rem;
 }
 
-/* Activity List */
-label {
-  margin-left: 0.5rem;
-}
-
-/* Itinerary Text */
+/* Itinerary */
 pre {
-  background-color: #1e1e2f;
-  color: #f2f2f2;
+  background-color: #131D4F;
+  color: #EFE4D2;
   padding: 1rem;
   border-radius: 6px;
-  overflow-x: auto;
+  white-space: pre-wrap;
 }
 
-/* Responsive */
+/* Responsive layout */
 @media (max-width: 768px) {
   .choice-images {
     flex-direction: column;
