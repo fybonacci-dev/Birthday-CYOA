@@ -1,144 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Greg's 40th Birthday Adventure</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greg's 40th Birthday Adventure</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Greg's 40th Birthday</h1>
-    <h2>Choose your own adventure...</h2>
-
-    <div class="section" id="intro">
-      <p class="poem">
-        Four decades of learning, growing, conquering, and building,<br>
-        Your journey’s been rich, fearless, and wildly fulfilling.<br>
-        You’ve hustled through seasons, with grit and with grace,<br>
-        Poured yourself into every challenge you face.<br><br>
-        You’ve built something irreplaceable, a business with soul,<br>
-        Led with your heart while achieving each goal.<br>
-        You’ve lifted up others, been steady and true—<br>
-        Be proud of the good that radiates from you.<br><br>
-        Now comes a moment to breathe, to rest—<br>
-        Before tackling what’s next (and giving your best).<br>
-        You’ve earned a break, a rejuvenating quest,<br>
-        To reset your soul and feel truly blessed.<br><br>
-        So Greg, the choice is now up to you:<br>
-        <strong>Beachside Grande Dunes</strong> with an ocean view?<br>
-        Or <strong>Chetolah’s peaks</strong> in Blowing Rock air?<br>
-        Both will be hot, but peace waits there.
-      </p>
-
-      <div class="choice-images">
-        <div class="choice">
-          <img src="https://cache.marriott.com/content/dam/marriott-renditions/MYRGD/myrgd-view-0024-hor-clsc.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*" alt="Beach" />
-          <button onclick="chooseLocation('beach')">🏖️ Go to the Beach</button>
+    <div class="container">
+        <!-- Splash Page -->
+        <div id="splash-page" class="page active">
+            <div class="splash-content">
+                <h1 class="birthday-title">Greg's Epic 40th Birthday Adventure!</h1>
+                <div class="birthday-message">
+                    <p>Get ready for an adventure where YOU make the choices!</p>
+                    <p>(don't worry it isn't today)</p>
+                    <p class="age-highlight">The best is yet to come!</p>
+                </div>
+                <button class="start-btn" onclick="startAdventure()">Begin Your Adventure!</button>
+            </div>
         </div>
-        <div class="choice">
-          <img src="https://blowingrock.com/wp-content/uploads/2022/05/che2.jpg" alt="Mountains" />
-          <button onclick="chooseLocation('mountains')">🏔️ Go to the Mountains</button>
-        </div>
-      </div>
-    </div> <!-- 🔧 FIXED: Properly closed #intro -->
 
-    <div class="section" id="activities" style="display:none;">
-      <h2>🎯 Choose Your Activities</h2>
-      <div id="activity-options"></div>
-      <button onclick="finishAdventure()">✅ Finish Adventure</button>
+        <!-- First Choice Page -->
+        <div id="choice-1" class="page">
+            <div class="story-content">
+                <h2>Your Adventure Begins!</h2>
+                <div class="story-text">
+                    <p>Greg, you've just woken up feeling energized and ready for adventure! 
+                    The sun is shining, and you have the whole day ahead of you.</p>
+                    
+                    <div class="birthday-poem">
+                        <p><em>Four decades of learning, growing, conquering, and building,<br>
+                        Your journey's been rich, fearless, and wildly fulfilling.<br>
+                        You've hustled through seasons, with grit and with grace,<br>
+                        Poured yourself into every challenge you face.</em></p>
+                        
+                        <p><em>You've built something irreplaceable, a business with soul,<br>
+                        Led with your heart while achieving each goal.<br>
+                        You've lifted up others, been steady and true—<br>
+                        Be proud of the good that radiates from you.</em></p>
+                        
+                        <p><em>Now comes a moment to breathe, to rest—<br>
+                        Before tackling what's next (and giving your best).<br>
+                        You've earned a break, a rejuvenating quest,<br>
+                        To reset your soul and feel truly blessed.</em></p>
+                        
+                        <p><em>So Greg, the choice is now up to you:<br>
+                        Beachside Grande Dunes with an ocean view?<br>
+                        Or Chetolah's peaks in Blowing Rock air?<br>
+                        Both will be hot, but peace waits there.</em></p>
+                    </div>
+                    
+                    <p>You look out your window and see:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('beach')">
+                        <div class="choice-icon">🏖️</div>
+                        <h3>The Beach</h3>
+                        <p>Feel the warm sand between your toes, listen to the waves, and soak up some vitamin D. Perfect for a relaxing birthday celebration!</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('mountains')">
+                        <div class="choice-icon">🏔️</div>
+                        <h3>The Mountains</h3>
+                        <p>Fresh mountain air, stunning views, and the thrill of adventure await. Time to conquer some peaks for your 40th!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="beach-page" class="page">
+            <div class="story-content">
+                <h2>Beach Paradise Adventure!</h2>
+                <div class="story-text">
+                    <p>You've chosen the beach! The salty air fills your lungs as you step onto the warm sand. The sound of waves crashing creates the perfect soundtrack for your 40th birthday getaway. After checking into your oceanfront resort, you're ready to make the most of your first morning.</p>
+                    
+                    <p>Standing on your balcony overlooking the pristine coastline, you have two appealing ways to start your beach adventure:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('beach-run')">
+                        <div class="choice-icon">🏃‍♂️</div>
+                        <h3>Morning Beach Run</h3>
+                        <p>Start your day with an invigorating run along the shoreline. Feel the sand beneath your feet and let the ocean breeze energize you for the day ahead.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('resort-pool')">
+                        <div class="choice-icon">🏊‍♂️</div>
+                        <h3>Resort Pool & Hot Tub</h3>
+                        <p>Ease into vacation mode at the resort's stunning pool area. Relax in the hot tub with ocean views and enjoy poolside service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beach Run Adventure Page -->
+        <div id="beach-run-page" class="page">
+            <div class="story-content">
+                <h2>Beach Run Bliss!</h2>
+                <div class="story-text">
+                    <p>You've chosen the morning beach run! Your feet sink slightly into the packed sand as you find your rhythm along the water's edge. The early morning sun warms your back while the cool ocean breeze keeps you comfortable.</p>
+                    
+                    <p>Dolphins play in the distance, seabirds call overhead, and the endless horizon reminds you of all the possibilities ahead in your 40s. After a perfect 5-mile run and a refreshing ocean dip, you're energized and ready for lunch. Now it's time to choose your afternoon adventure:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('jet-ski')">
+                        <div class="choice-icon">🏄‍♂️</div>
+                        <h3>Jet Ski Adventure</h3>
+                        <p>Feel the thrill of racing across the waves! Explore hidden coves and experience the ocean from a completely new perspective.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('beach-golf')">
+                        <div class="choice-icon">⛳</div>
+                        <h3>Oceanfront Golf</h3>
+                        <p>Play 18 holes on the resort's championship oceanfront course. Ocean breezes and stunning views make every shot memorable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resort Pool Adventure Page -->
+        <div id="resort-pool-page" class="page">
+            <div class="story-content">
+                <h2>Pool Paradise!</h2>
+                <div class="story-text">
+                    <p>You've chosen the resort pool and hot tub! The infinity pool seems to blend seamlessly with the ocean horizon. The water temperature is perfect, and your poolside cabana offers both sunshine and shade options.</p>
+                    
+                    <p>You alternate between refreshing swims and relaxing soaks in the oceanview hot tub. The attentive staff brings you tropical drinks and fresh fruit, while the sound of waves provides the perfect ambiance. After a leisurely morning and delicious poolside lunch, you're ready for your afternoon adventure:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('jet-ski')">
+                        <div class="choice-icon">🏄‍♂️</div>
+                        <h3>Jet Ski Adventure</h3>
+                        <p>Add some excitement to your relaxing day! Speed across the waves and explore the coastline from the water.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('beach-golf')">
+                        <div class="choice-icon">⛳</div>
+                        <h3>Oceanfront Golf</h3>
+                        <p>Continue the relaxed pace with a round of golf. Ocean views from every tee and gentle sea breezes make for perfect playing conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jet Ski Adventure Page -->
+        <div id="jet-ski-page" class="page">
+            <div class="story-content">
+                <h2>Jet Ski Thrills!</h2>
+                <div class="story-text">
+                    <p>You've chosen jet skiing! After a quick safety briefing, you're racing across the crystal-clear water, feeling the spray on your face and the power of the machine beneath you. The coastline reveals hidden beaches and dramatic cliffs that you never would have seen from shore.</p>
+                    
+                    <p>You discover a secluded cove perfect for a quick swim and even spot a group of playful dolphins who seem curious about your jet ski. The adrenaline rush combined with the natural beauty makes this the perfect way to celebrate turning 40 - embracing both adventure and wonder.</p>
+                    
+                    <p>After a perfect night's sleep lulled by ocean sounds, you wake refreshed and ready for day two. The concierge suggests two wonderful options for your second morning:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('beach-spa')">
+                        <div class="choice-icon">🧘‍♂️</div>
+                        <h3>Resort Spa Massage</h3>
+                        <p>Treat yourself to the ultimate relaxation with a massage overlooking the ocean. Let skilled therapists melt away any tension from yesterday's adventures.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('beach-lounging')">
+                        <div class="choice-icon">🏖️</div>
+                        <h3>Beach Lounging</h3>
+                        <p>Claim the perfect spot on the pristine beach. Soak up the sun, read a good book, and let the sound of waves wash your cares away.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beach Golf Adventure Page -->
+        <div id="beach-golf-page" class="page">
+            <div class="story-content">
+                <h2>Oceanfront Golf Perfection!</h2>
+                <div class="story-text">
+                    <p>You've chosen golf! The oceanfront course is absolutely stunning - every hole offers breathtaking views of the coastline. The gentle sea breeze provides natural air conditioning, and the sound of waves creates the most relaxing golf soundtrack imaginable.</p>
+                    
+                    <p>The course challenges you with strategic ocean carries and seaside hazards, but the beauty of each hole makes even tough shots enjoyable. By the back nine, you're completely in the zone, playing some of your best golf while soaking in the incredible scenery. The 18th hole finishes right at the clubhouse deck overlooking the beach - the perfect ending to a perfect round.</p>
+                    
+                    <p>After celebrating your round with fellow golfers and a delicious clubhouse meal, you sleep like a baby to the sound of waves. Day two begins with two enticing options:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('beach-spa')">
+                        <div class="choice-icon">🧘‍♂️</div>
+                        <h3>Resort Spa Massage</h3>
+                        <p>Complete your perfect getaway with luxurious spa treatments. Oceanview massage rooms and world-class therapists await.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('beach-lounging')">
+                        <div class="choice-icon">🏖️</div>
+                        <h3>Beach Lounging</h3>
+                        <p>Spend your morning on the pristine sand. Perfect weather, comfortable lounge chairs, and attentive beach service make this pure bliss.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beach Spa Adventure Page -->
+        <div id="beach-spa-page" class="page">
+            <div class="story-content">
+                <h2>Oceanview Spa Bliss!</h2>
+                <div class="story-text">
+                    <p>You've chosen the resort spa! The treatment room features floor-to-ceiling windows overlooking the ocean, with the sound of waves providing the perfect soundtrack for your massage. The skilled therapist uses warm coconut oil and techniques that melt away every bit of tension.</p>
+                    
+                    <p>Following your massage, you relax in the oceanview relaxation room with herbal tea and fresh fruit. You feel completely renewed and ready for whatever adventures your 40s might bring.</p>
+                    
+                    <p>After a restorative morning, lunch, and a refreshing nap, you're ready for your final adventure. The concierge has two spectacular options to cap off your beach getaway:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('kayak-island')">
+                        <div class="choice-icon">🛶</div>
+                        <h3>Kayak to Private Island</h3>
+                        <p>Paddle to a secluded island just offshore. Explore pristine beaches, snorkel in crystal-clear water, and enjoy a private picnic lunch.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('beach-show')">
+                        <div class="choice-icon">🎭</div>
+                        <h3>Evening Show</h3>
+                        <p>Experience the local culture with an entertaining evening show. Live music, talented performers, and a celebration of island life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beach Lounging Adventure Page -->
+        <div id="beach-lounging-page" class="page">
+            <div class="story-content">
+                <h2>Perfect Beach Day!</h2>
+                <div class="story-text">
+                    <p>You've chosen beach lounging! You find the perfect spot where the sand is soft and the view is unbeatable. Your comfortable lounge chair is positioned for optimal sun exposure, with an umbrella nearby for when you need shade.</p>
+                    
+                    <p>The morning passes peacefully as you alternate between a great book, refreshing ocean dips, and simply watching the waves roll in. The beach service brings you cold drinks and fresh fruit, while gentle ocean breezes keep you comfortable. This is exactly what turning 40 should feel like - taking time to truly relax and appreciate life's simple pleasures.</p>
+                    
+                    <p>After a leisurely beachside lunch and perhaps a short nap in the shade, you're ready for your afternoon adventure. Two exciting options await:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('kayak-island')">
+                        <div class="choice-icon">🛶</div>
+                        <h3>Kayak to Private Island</h3>
+                        <p>Add some adventure to your relaxing day! Paddle to a beautiful private island for exploration and snorkeling.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('beach-show')">
+                        <div class="choice-icon">🎭</div>
+                        <h3>Evening Show</h3>
+                        <p>End your beach getaway with entertainment! Enjoy live music and cultural performances celebrating island life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kayak Island Adventure Page -->
+        <div id="kayak-island-page" class="page">
+            <div class="story-content">
+                <h2>Private Island Exploration!</h2>
+                <div class="story-text">
+                    <p>You've chosen the kayak adventure to the private island! The paddle out is invigorating - the water is crystal clear and you can see tropical fish swimming below your kayak. The small island is even more beautiful than it looked from shore.</p>
+                    
+                    <p>You spend the afternoon exploring the island's pristine beaches, snorkeling in the coral reef, and enjoying a gourmet picnic lunch under swaying palm trees. The snorkeling reveals an underwater world of colorful fish and coral formations, while the deserted beaches make you feel like you've discovered your own private paradise. As you kayak back to the resort at sunset, you realize this adventure perfectly captures the spirit of your 40th birthday - exploring new horizons and embracing life's adventures.</p>
+                    
+                    <div class="birthday-celebration">
+                        <h3>🛶 Island Paradise & New Horizons! 🛶</h3>
+                        <p>As the sun sets behind you during your paddle back to shore, you reflect on this perfect day of discovery. The private island adventure reminds you that some of life's greatest treasures are found when you're willing to venture into uncharted waters.</p>
+                        
+                        <div class="reflection-quote">
+                            "You've earned a break, a rejuvenating quest, to reset your soul and feel truly blessed."
+                        </div>
+                        
+                        <p>At 40, you've learned that life's most rewarding experiences often require a little extra effort - like paddling to a hidden paradise. You've built the strength and wisdom to navigate both calm seas and choppy waters, always reaching for new horizons.</p>
+                        
+                        <div class="birthday-wish">Happy 40th Birthday, Greg! 🎉</div>
+                        
+                        <p>May your next decade be filled with more hidden treasures, peaceful moments in paradise, and the courage to keep exploring life's endless possibilities!</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="downloadItinerary()">📋 Download My Adventure Itinerary</button>
+            </div>
+        </div>
+
+        <!-- Beach Show Adventure Page -->
+        <div id="beach-show-page" class="page">
+            <div class="story-content">
+                <h2>Island Culture Show!</h2>
+                <div class="story-text">
+                    <p>You've chosen the evening show! The outdoor amphitheater is set right on the beach, with tiki torches creating a magical atmosphere as the sun sets over the ocean. The show celebrates island culture with incredible live music, traditional dancing, and talented local performers.</p>
+                    
+                    <p>The energy is infectious as musicians play steel drums and guitars while dancers tell stories through movement. You find yourself clapping along and completely immersed in the celebration of life and culture. During intermission, you enjoy tropical cocktails and local delicacies while mingling with other guests and locals. As the show concludes with a spectacular fire dance under the stars, you realize this cultural experience is the perfect way to celebrate your 40th - embracing new experiences and connecting with the vibrant spirit of island life.</p>
+                    
+                    <div class="birthday-celebration">
+                        <h3>🎭 Celebrating Life & Culture! 🎭</h3>
+                        <p>As the final fire dancer takes their bow under the starlit sky, you're filled with a deep appreciation for the beauty of human expression and cultural celebration. The rhythmic music still echoes in your heart, and you feel more connected to life's rich tapestry than ever before.</p>
+                        
+                        <div class="reflection-quote">
+                            "You've lifted up others, been steady and true - be proud of the good that radiates from you."
+                        </div>
+                        
+                        <p>Tonight's cultural celebration reminds you that life is meant to be shared, celebrated, and experienced with others. At 40, you've learned to appreciate not just your own journey, but the diverse stories and traditions that make our world so vibrant and beautiful.</p>
+                        
+                        <div class="birthday-wish">Happy 40th Birthday, Greg! 🎉</div>
+                        
+                        <p>May your next decade be filled with more cultural discoveries, meaningful connections, and celebrations that feed your soul and expand your heart!</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="downloadItinerary()">📋 Download My Adventure Itinerary</button>
+            </div>
+        </div>
+
+        <div id="mountains-page" class="page">
+            <div class="story-content">
+                <h2>Mountain Adventure!</h2>
+                <div class="story-text">
+                    <p>You've chosen the mountains! The crisp air invigorates you as you begin your ascent. After a refreshing drive through winding mountain roads, you arrive at a beautiful mountain resort.</p>
+                    
+                    <p>Standing at the resort's entrance, you check out the morning activities. Two options catch your eye:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('pickleball')">
+                        <div class="choice-icon">🏓</div>
+                        <h3>Pickleball Lessons</h3>
+                        <p>Finally learn what a kitchen is! Take a pickleball lessons and enjoy some "friendly" competition.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('paddleboard')">
+                        <div class="choice-icon">🏞️</div>
+                        <h3>Water Activities</h3>
+                        <p>Glide across the serene lake on a paddleboard or kayak. Perfect for a peaceful morning surrounded by mountain views.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pickleball Adventure Page -->
+        <div id="pickleball-page" class="page">
+            <div class="story-content">
+                <h2>Pickleball Fun!</h2>
+                <div class="story-text">
+                    <p>You've chosen pickleball lessons! The instructor welcomes you to the beautiful courts overlooking the valley. The sport turns out to be incredibly fun - like tennis meets ping-pong with a social twist.</p>
+                    
+                    <p>After an energizing morning of learning serves, volleys, and strategy, you've worked up quite an appetite. Lunch at the resort restaurant was perfect, and now it's early afternoon. Time to decide how to spend the rest of your birthday:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('spa')">
+                        <div class="choice-icon">🧘‍♂️</div>
+                        <h3>Afternoon at the Spa</h3>
+                        <p>Treat yourself to the ultimate relaxation after your active morning. Hot stone massage, sauna, and rejuvenating treatments with mountain views.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('pool')">
+                        <div class="choice-icon">🏊‍♂️</div>
+                        <h3>Poolside Afternoon</h3>
+                        <p>Relax by the resort's stunning infinity pool. Swim some laps, lounge with a good book, and enjoy poolside service with mountain vistas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paddleboard Adventure Page -->
+        <div id="paddleboard-page" class="page">
+            <div class="story-content">
+                <h2>Lake Paddleboarding!</h2>
+                <div class="story-text">
+                    <p>You've chosen paddleboarding or kayaking on the lake! The calm lake water mirrors the surrounding peaks perfectly. Gliding across the surface, you find a peaceful rhythm that's both meditative and surprisingly good exercise.</p>
+                    
+                    <p>After a tranquil morning on the water, watching wildlife and soaking in the mountain scenery, you're feeling centered and hungry. A delicious lakeside lunch hit the spot, and now the afternoon beckons with relaxing options:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('spa')">
+                        <div class="choice-icon">🧘‍♂️</div>
+                        <h3>Afternoon at the Spa</h3>
+                        <p>Complete your perfect day with a spa treatments. Let your cares melt away any while getting a massage.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('pool')">
+                        <div class="choice-icon">🏊‍♂️</div>
+                        <h3>Poolside Afternoon</h3>
+                        <p>Continue the water theme by the pool. Cool off, take a dip, and enjoy a good book and a drink by the water.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spa Adventure Page -->
+        <div id="spa-page" class="page">
+            <div class="story-content">
+                <h2>Spa Retreat Bliss!</h2>
+                <div class="story-text">
+                    <p>You've chosen the spa for your afternoon! The tranquil atmosphere welcomes you with soft music, aromatherapy scents, and stunning mountain views through floor-to-ceiling windows.</p>
+                    
+                    <p>Your hot stone massage melts away any lingering tension from your active morning, followed by time in the eucalyptus steam room. As the day winds down, you feel completely renewed and ready for whatever the next decade brings.</p>
+                    
+                    <p>After a perfect night's sleep, you wake up refreshed and ready for another day of adventure. The resort concierge has two fantastic options for your second morning:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('hike')">
+                        <div class="choice-icon">🥾</div>
+                        <h3>Hike to Glen Marie Falls</h3>
+                        <p>Challenge yourself with a scenic hike to the legendary waterfall. A 2-hour trek through wilderness that rewards you with spectacular views.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('golf')">
+                        <div class="choice-icon">⛳</div>
+                        <h3>Round of Golf</h3>
+                        <p>Play 18 holes on the resort's championship course. Mountain views from every tee, perfectly manicured greens, and a clubhouse breakfast to fuel your game.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pool Adventure Page -->
+        <div id="pool-page" class="page">
+            <div class="story-content">
+                <h2>Poolside Perfection!</h2>
+                <div class="story-text">
+                    <p>You've chosen the poolside afternoon! The infinity pool seems to blend seamlessly with the mountain horizon. The water is perfectly heated, and your lounge chair has the best view in the house.</p>
+                    
+                    <p>You alternate between refreshing swims and relaxing with a great book, while the attentive staff brings you exactly what you need. As the sun begins to set behind the peaks, you realize this has been the perfect 40th birthday celebration.</p>
+                    
+                    <p>After a restful night, you wake up energized for day two of your mountain getaway. The concierge suggests two excellent options for your morning adventure:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('hike')">
+                        <div class="choice-icon">🥾</div>
+                        <h3>Hike to Glen Marie Falls</h3>
+                        <p>Explore the famous waterfall trail! A moderate 2-hour hike through pristine wilderness leading to one of the region's most beautiful waterfalls.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('golf')">
+                        <div class="choice-icon">⛳</div>
+                        <h3>Round of Golf</h3>
+                        <p>Tee off at a near-by golf course. Championship layout with dramatic elevation changes and mountain vistas that will make every shot memorable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hike Adventure Page -->
+        <div id="hike-page" class="page">
+            <div class="story-content">
+                <h2>Glen Marie Falls Adventure!</h2>
+                <div class="story-text">
+                    <p>You've chosen the hike to Glen Marie Falls! The trail starts with a challenging 800-foot descent through a forest of towering pines and ancient oaks. The morning air is crisp and invigorating as you follow the well-marked path.</p>
+                    
+                    <p>After an hour of moderate hiking, you begin to hear the distant roar of rushing water. Rounding the final bend, Glen Marie Falls comes into spectacular view - a cascade of water tumbling over granite cliffs into a crystal-clear pool below. The mist creates rainbows in the morning sunlight, and you realize this natural wonder is the perfect way to celebrate your milestone birthday.</p>
+                    
+                    <p>After the invigorating hike back to the resort and a well-deserved lunch, you're ready for your afternoon adventure. Two exciting options await:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('brewery')">
+                        <div class="choice-icon">🍺</div>
+                        <h3>Downtown Food & Brew Tour</h3>
+                        <p>Head downtown to explore the local breweries and cuisine scene. Sample craft beers, discover hidden food gems, and experience the town's vibrant culture.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('zipline')">
+                        <div class="choice-icon">🛷</div>
+                        <h3>Zip Lining Adventure</h3>
+                        <p>Soar through the treetops on an exhilarating zip line course! Multiple lines offer breathtaking canopy views and an adrenaline rush perfect for your 40th.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Golf Adventure Page -->
+        <div id="golf-page" class="page">
+            <div class="story-content">
+                <h2>Championship Golf!</h2>
+                <div class="story-text">
+                    <p>You've chosen a round of golf! The course is absolutely stunning and the weather is perfect- every hole offers breathtaking mountain vistas. After a hearty clubhouse breakfast, you head to the first tee feeling confident and excited.</p>
+                    
+                    <p>The course challenges you with strategic doglegs, elevation changes, and pristine greens. By the back nine, you're in your groove, sinking putts and enjoying the peaceful mountain morning. Whether you're playing your best game ever or just enjoying the scenery, this round captures the essence of turning 40 - taking time to appreciate life's finer pleasures.</p>
+                    
+                    <p>After celebrating your round with fellow golfers at the 19th hole, you're energized for the afternoon. The concierge suggests two fantastic options to cap off your mountain getaway:</p>
+                </div>
+                
+                <div class="choices">
+                    <div class="choice-card" onclick="makeChoice('brewery')">
+                        <div class="choice-icon">🍺</div>
+                        <h3>Downtown Food & Brew Tour</h3>
+                        <p>Venture downtown for a culinary adventure! Explore local breweries, discover authentic mountain cuisine, and immerse yourself in the town's foodie culture.</p>
+                    </div>
+                    
+                    <div class="choice-card" onclick="makeChoice('zipline')">
+                        <div class="choice-icon">🛷</div>
+                        <h3>Zip Lining Adventure</h3>
+                        <p>Add some excitement to your day with a thrilling zip line course! Fly through the forest canopy and see the mountains from a bird's eye view.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brewery Adventure Page -->
+        <div id="brewery-page" class="page">
+            <div class="story-content">
+                <h2>Downtown Food & Brew Adventure!</h2>
+                <div class="story-text">
+                    <p>You've chosen the downtown culinary tour! The charming mountain town buzzes with activity as you stroll down Main Street. Your first stop is the local Brewery, where you sample their signature lager and mountain wheat beer.</p>
+                    
+                    <p>Next, you discover a cozy gastropub serving locally-sourced trout with craft beer pairings, followed by a visit to the artisan distillery for mountain moonshine tastings. You end at a farm-to-table restaurant where the chef recommends their famous elk burger paired with a bourbon barrel-aged porter. The friendly locals share stories about mountain life, and you realize this authentic taste of the region is the perfect way to celebrate turning 40 - exploring new flavors and making genuine connections.</p>
+                    
+                    <div class="birthday-celebration">
+                        <h3>🍻 Cheers to 40 Years! 🍻</h3>
+                        <p>As you raise a final toast at the mountain brewery, you reflect on the incredible journey that brought you to this moment. Just like the craft beer you're savoring, you've been carefully cultivated through four decades of experiences.</p>
+                        
+                        <div class="reflection-quote">
+                            "You've built something irreplaceable, a business with soul, led with your heart while achieving each goal."
+                        </div>
+                        
+                        <p>The mountain air, the genuine conversations, and the rich flavors of local cuisine remind you that life's best moments come from authentic experiences and real connections. At 40, you're not just older - you're more refined, more appreciative, and ready for whatever adventures the next decade brings.</p>
+                        
+                        <div class="birthday-wish">Happy 40th Birthday, Greg! 🎉</div>
+                        
+                        <p>Here's to conquering new peaks, savoring life's finest moments, and continuing to build something beautiful with your heart and soul!</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="downloadItinerary()">📋 Download My Adventure Itinerary</button>
+            </div>
+        </div>
+
+        <!-- Zip Line Adventure Page -->
+        <div id="zipline-page" class="page">
+            <div class="story-content">
+                <h2>Canopy Zip Line Thrills!</h2>
+                <div class="story-text">
+                    <p>You've chosen the zip line adventure! After a safety briefing and gear check, you climb to the first platform high in the trees. Your heart pounds with excitement as you clip in for your first flight through the forest canopy.</p>
+                    
+                    <p>The course features six progressively longer and faster lines, each offering stunning views of the valley below. On the final "birthday flight" - nearly a quarter mile long - you soar above the treetops at exhilarating speed, feeling like you're flying through the mountains. As you glide through the crisp air with the wind in your face, you realize this is exactly how turning 40 should feel: bold, adventurous, and absolutely alive!</p>
+                    
+                    <div class="birthday-celebration">
+                        <h3>🛷 Soaring Into Your 40s! 🛷</h3>
+                        <p>Standing on solid ground after your final zip line flight, you feel an incredible rush of accomplishment and joy. The wind is still in your hair, your heart is still racing, and you can't stop smiling.</p>
+                        
+                        <div class="reflection-quote">
+                            "Four decades of learning, growing, conquering, and building - your journey's been rich, fearless, and wildly fulfilling."
+                        </div>
+                        
+                        <p>Just like that final zip line, your life has been about taking calculated risks, embracing the thrill of the unknown, and trusting that you have the skills and courage to navigate whatever comes next. At 40, you're not slowing down - you're gaining momentum!</p>
+                        
+                        <div class="birthday-wish">Happy 40th Birthday, Greg! 🎉</div>
+                        
+                        <p>May your next decade be filled with more heart-pounding adventures, breathtaking views, and the exhilarating freedom that comes from living life to the fullest!</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="downloadItinerary()">📋 Download My Adventure Itinerary</button>
+            </div>
+        </div>
     </div>
 
-    <div class="section" id="summary" style="display:none;">
-      <h2>🗺️ Your Itinerary</h2>
-      <pre id="itinerary"></pre>
-      <button id="download" onclick="downloadItinerary()">⬇️ Download Itinerary</button>
-    </div>
-  </div>
-
-  <script>
-    const state = {
-      location: '',
-      activities: []
-    };
-
-    const options = {
-      beach: {
-        name: 'Grande Dunes Resort and Spa',
-        activities: [
-          'Kayak to private island',
-          'Massage at Hibiscus spa',
-          'Golf at the Grande Dunes course',
-          'Sunset dinner with ocean view',
-          'Jet ski adventure'
-        ]
-      },
-      mountains: {
-        name: 'Chetolah Resort at Blowing Rock',
-        activities: [
-          'Hike to Glen Burney Falls',
-          'Craft beer tasting in town',
-          'Hot stone massage at the lodge',
-          'Take a pickleball lesson',
-          'Shoot at the archery range',
-          'Go paddle boarding',
-          'Relax by the pool',
-          'Scenic drive on Blue Ridge Parkway',
-          'Guided fly fishing'
-        ]
-      }
-    };
-
-    function chooseLocation(loc) {
-      state.location = loc;
-      document.getElementById('intro').style.display = 'none';
-      const actDiv = document.getElementById('activity-options');
-      actDiv.innerHTML = '';
-      options[loc].activities.forEach((activity, i) => {
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.id = `act-${i}`;
-        checkbox.value = activity;
-        actDiv.appendChild(checkbox);
-
-        const label = document.createElement('label');
-        label.htmlFor = `act-${i}`;
-        label.textContent = activity;
-        actDiv.appendChild(label);
-        actDiv.appendChild(document.createElement('br'));
-      });
-      document.getElementById('activities').style.display = 'block';
-    }
-
-    function finishAdventure() {
-      const checkboxes = document.querySelectorAll('#activity-options input[type=checkbox]');
-      state.activities = [];
-      checkboxes.forEach(cb => {
-        if (cb.checked) state.activities.push(cb.value);
-      });
-
-      const itinerary = `Greg's 40th Birthday Itinerary\n\n` +
-                        `Location: ${options[state.location].name}\n\n` +
-                        `Activities:\n` +
-                        (state.activities.length > 0
-                          ? state.activities.map(a => `- ${a}`).join('\n')
-                          : '- No activities selected') +
-                        `\n\nEnjoy your adventure, Greg! 🎉`;
-
-      document.getElementById('itinerary').textContent = itinerary;
-      document.getElementById('activities').style.display = 'none';
-      document.getElementById('summary').style.display = 'block';
-      document.getElementById('download').style.display = 'inline-block';
-    }
-
-    function downloadItinerary() {
-      const text = document.getElementById('itinerary').textContent;
-      const blob = new Blob([text], { type: 'text/plain' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'Greg_40th_Itinerary.txt';
-      link.click();
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
