@@ -3,63 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <title>Greg's 40th Birthday Adventure</title>
-  <style>
-    body {
-      font-family: Georgia, serif;
-      background-color: #f5f5f5;
-      padding: 2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-    h1, h2 {
-      color: #333;
-    }
-    .section {
-      margin-bottom: 2rem;
-    }
-    button {
-      margin: 0.5rem 0.5rem 0.5rem 0;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-    }
-    #download {
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Greg's 40th Birthday Adventure</h1>
-  <div class="section" id="intro">
-    <p>
-      Four decades of fire, of family, of fight,<br>
-      Greg’s journey has shimmered, a bold, brilliant light.<br>
-      He’s climbed every mountain, blazed every road,<br>
-      Built a fine life with a meaningful load.<br><br>
+  <div class="container">
+    <h1>🎉 Greg's 40th Birthday Adventure 🎉</h1>
 
-      Now comes a moment to breathe, to rest—<br>
-      Before tackling what’s next (and giving your best).<br>
-      You’ve earned a break, a rejuvenating quest,<br>
-      To reset your soul and feel truly blessed.<br><br>
+    <div class="section" id="intro">
+      <p class="poem">
+        Four decades of fire, of family, of fight,<br>
+        Greg’s journey has shimmered, a bold, brilliant light.<br>
+        He’s climbed every mountain, blazed every road,<br>
+        Built a fine life with a meaningful load.<br><br>
 
-      So Greg, the choice is now up to you:<br>
-      Beachside Grande Dunes with an ocean view?<br>
-      Or Chetolah’s peaks in Blowing Rock air?<br>
-      Both will be hot, but peace waits there.
-    </p>
-    <button onclick="chooseLocation('beach')">Go to the Beach</button>
-    <button onclick="chooseLocation('mountains')">Go to the Mountains</button>
-  </div>
+        Now comes a moment to breathe, to rest—<br>
+        Before tackling what’s next (and giving your best).<br>
+        You’ve earned a break, a rejuvenating quest,<br>
+        To reset your soul and feel truly blessed.<br><br>
 
-  <div class="section" id="activities" style="display:none;">
-    <h2>Choose Your Activities</h2>
-    <div id="activity-options"></div>
-    <button onclick="finishAdventure()">Finish Adventure</button>
-  </div>
+        So Greg, the choice is now up to you:<br>
+        <strong>Beachside Grande Dunes</strong> with an ocean view?<br>
+        Or <strong>Chetolah’s peaks</strong> in Blowing Rock air?<br>
+        Both will be hot, but peace waits there.
+      </p>
+      <div class="choice-images">
+        <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Sunset_at_Myrtle_Beach%2C_SC.jpg/640px-Sunset_at_Myrtle_Beach%2C_SC.jpg" alt="Beach" />
+          <button onclick="chooseLocation('beach')">🏖️ Go to the Beach</button>
+        </div>
+        <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Blowing_Rock%2C_North_Carolina_%28215043277%29.jpeg/640px-Blowing_Rock%2C_North_Carolina_%28215043277%29.jpeg" alt="Mountains" />
+          <button onclick="chooseLocation('mountains')">🏔️ Go to the Mountains</button>
+        </div>
+      </div>
+    </div>
 
-  <div class="section" id="summary" style="display:none;">
-    <h2>Your Itinerary</h2>
-    <pre id="itinerary"></pre>
-    <button id="download" onclick="downloadItinerary()">Download Itinerary</button>
+    <div class="section" id="activities" style="display:none;">
+      <h2>🎯 Choose Your Activities</h2>
+      <div id="activity-options"></div>
+      <button onclick="finishAdventure()">✅ Finish Adventure</button>
+    </div>
+
+    <div class="section" id="summary" style="display:none;">
+      <h2>🗺️ Your Itinerary</h2>
+      <pre id="itinerary"></pre>
+      <button id="download" onclick="downloadItinerary()">⬇️ Download Itinerary</button>
+    </div>
   </div>
 
   <script>
