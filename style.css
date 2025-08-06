@@ -8,7 +8,7 @@
 /* Body background and fonts */
 body {
   font-family: 'Lato', sans-serif;
-  background: #131D4F url('https://www.transparenttextures.com/patterns/purty-wood.png');
+  background: #EFE4D2 url('https://www.transparenttextures.com/patterns/purty-wood.png');
   color: #EFE4D2;
   line-height: 1.6;
   background-attachment: fixed;
@@ -27,7 +27,7 @@ body {
 /* Headings */
 h1 {
   text-align: center;
-  color: #EFE4D2;
+  color: #954C2E;
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
@@ -45,6 +45,7 @@ h2 {
   font-size: 1.15rem;
   text-align: center;
   margin-bottom: 2rem;
+  color: #EFE4D2;
 }
 
 /* Choice images */
