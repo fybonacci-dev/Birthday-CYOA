@@ -8,9 +8,10 @@
 /* Body background and fonts */
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #131D4F;
+  background: #131D4F url('https://www.transparenttextures.com/patterns/purty-wood.png');
   color: #EFE4D2;
   line-height: 1.6;
+  background-attachment: fixed;
 }
 
 /* Main container */
