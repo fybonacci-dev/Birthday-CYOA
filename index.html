@@ -8,7 +8,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>🎉 Greg's 40th Birthday Adventure 🎉</h1>
+    <h1>Greg's 40th Birthday</h1>
+    <h2>Chose your own adventure...<h2>
 
     <div class="section" id="intro">
       <p class="poem">
@@ -27,17 +28,20 @@
         Or <strong>Chetolah’s peaks</strong> in Blowing Rock air?<br>
         Both will be hot, but peace waits there.
       </p>
+
+      <div class="button-row">
+        <button onclick="chooseLocation('beach')">🏖️ Go to the Beach</button>
+        <button onclick="chooseLocation('mountains')">🏔️ Go to the Mountains</button>
+      </div>
+
       <div class="choice-images">
         <div>
           <img src="https://cache.marriott.com/content/dam/marriott-renditions/MYRGD/myrgd-view-0024-hor-clsc.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*" alt="Beach" />
-          <button onclick="chooseLocation('beach')">🏖️ Go to the Beach</button>
         </div>
         <div>
           <img src="https://blowingrock.com/wp-content/uploads/2022/05/che2.jpg" alt="Mountains" />
-          <button onclick="chooseLocation('mountains')">🏔️ Go to the Mountains</button>
         </div>
       </div>
-    </div>
 
     <div class="section" id="activities" style="display:none;">
       <h2>🎯 Choose Your Activities</h2>
