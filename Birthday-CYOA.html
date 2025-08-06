@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Greg's 40th Birthday Adventure</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #f5f5f5;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    button {
+      margin: 0.5rem 0.5rem 0.5rem 0;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+    #download {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Greg's 40th Birthday Adventure</h1>
+  <div class="section" id="intro">
+    <p>
+      Four decades of fire, of family, of fight,<br>
+      Greg’s journey has shimmered, a bold, brilliant light.<br>
+      He’s climbed every mountain, blazed every road,<br>
+      Built a fine life with a meaningful load.<br><br>
+
+      Now comes a moment to breathe, to rest—<br>
+      Before tackling what’s next (and giving your best).<br>
+      You’ve earned a break, a rejuvenating quest,<br>
+      To reset your soul and feel truly blessed.<br><br>
+
+      So Greg, the choice is now up to you:<br>
+      Beachside Grande Dunes with an ocean view?<br>
+      Or Chetolah’s peaks in Blowing Rock air?<br>
+      Both will be hot, but peace waits there.
+    </p>
+    <button onclick="chooseLocation('beach')">Go to the Beach</button>
+    <button onclick="chooseLocation('mountains')">Go to the Mountains</button>
+  </div>
+
+  <div class="section" id="activities" style="display:none;">
+    <h2>Choose Your Activities</h2>
+    <div id="activity-options"></div>
+    <button onclick="finishAdventure()">Finish Adventure</button>
+  </div>
+
+  <div class="section" id="summary" style="display:none;">
+    <h2>Your Itinerary</h2>
+    <pre id="itinerary"></pre>
+    <button id="download" onclick="downloadItinerary()">Download Itinerary</button>
+  </div>
+
+  <script>
+    const state = {
+      location: '',
+      activities: []
+    };
+
+    const options = {
+      beach: {
+        name: 'Grande Dunes Resort and Spa',
+        activities: [
+          'Morning yoga on the beach',
+          'Deep tissue massage at the spa',
+          'Golf at the Grande Dunes course',
+          'Sunset dinner with ocean view',
+          'Jet ski adventure'
+        ]
+      },
+      mountains: {
+        name: 'Chetolah Resort at Blowing Rock',
+        activities: [
+          'Hike to Glen Burney Falls',
+          'Craft beer tasting in town',
+          'Hot stone massage at the lodge',
+          'Scenic drive on Blue Ridge Parkway',
+          'Evening fire pit and stargazing'
+        ]
+      }
+    };
+
+    function chooseLocation(loc) {
+      state.location = loc;
+      document.getElementById('intro').style.display = 'none';
+      const actDiv = document.getElementById('activity-options');
+      actDiv.innerHTML = '';
+      options[loc].activities.forEach((activity, i) => {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `act-${i}`;
+        checkbox.value = activity;
+        actDiv.appendChild(checkbox);
+
+        const label = document.createElement('label');
+        label.htmlFor = `act-${i}`;
+        label.textContent = activity;
+        actDiv.appendChild(label);
+        actDiv.appendChild(document.createElement('br'));
+      });
+      document.getElementById('activities').style.display = 'block';
+    }
+
+    function finishAdventure() {
+      const checkboxes = document.querySelectorAll('#activity-options input[type=checkbox]');
+      state.activities = [];
+      checkboxes.forEach(cb => {
+        if (cb.checked) state.activities.push(cb.value);
+      });
+
+      const itinerary = `Greg's 40th Birthday Itinerary\n\n` +
+                        `Location: ${options[state.location].name}\n\n` +
+                        `Activities:\n` +
+                        (state.activities.length > 0
+                          ? state.activities.map(a => `- ${a}`).join('\n')
+                          : '- No activities selected') +
+                        `\n\nEnjoy your adventure, Greg! 🎉`;
+
+      document.getElementById('itinerary').textContent = itinerary;
+      document.getElementById('activities').style.display = 'none';
+      document.getElementById('summary').style.display = 'block';
+      document.getElementById('download').style.display = 'inline-block';
+    }
+
+    function downloadItinerary() {
+      const text = document.getElementById('itinerary').textContent;
+      const blob = new Blob([text], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Greg_40th_Itinerary.txt';
+      link.click();
+    }
+  </script>
+</body>
+</html>
